@@ -55,5 +55,10 @@
   "bugs": {
     "url": "https://github.com/Lesnov-Petr/goit-react-hw-02-feedback/issues"
   },
-  "homepage": "https://Lesnov-Petr.github.io/goit-react-hw-02-feedback"
+  "homepage": "https://Lesnov-Petr.github.io/goit-react-hw-02-feedback",
+  "files.autoSave": "onFocusChange",
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  }
 }
