@@ -1,15 +1,19 @@
 {
-  "name": "goit-react-hw-02-feedback",
+  "name": "goit-react-hw-01-components",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@testing-library/jest-dom": "^5.11.10",
-    "@testing-library/react": "^11.2.6",
+    "@material-ui/core": "^4.11.3",
+    "@material-ui/icons": "^4.11.2",
+    "@testing-library/jest-dom": "^5.11.9",
+    "@testing-library/react": "^11.2.5",
     "@testing-library/user-event": "^12.8.3",
-    "gh-pages": "^3.1.0",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-scripts": "4.0.3",
+    "modern-normalize": "^1.0.0",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-jss": "^10.6.0",
+    "react-scripts": "^4.0.3",
+    "sass": "^1.32.8",
     "web-vitals": "^1.1.1"
   },
   "scripts": {
@@ -38,27 +42,14 @@
       "last 1 safari version"
     ]
   },
-  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
-  "main": "index.js",
+  "homepage": "https://lesnov-petr.github.io/goit-react-hw-01-components/",
   "devDependencies": {
-    "husky": "^6.0.0",
+    "gh-pages": "^3.1.0",
+    "husky": "^5.1.3",
     "lint-staged": "^10.5.4",
-    "prettier": "^2.2.1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Lesnov-Petr/goit-react-hw-02-feedback.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Lesnov-Petr/goit-react-hw-02-feedback/issues"
-  },
-  "homepage": "https://Lesnov-Petr.github.io/goit-react-hw-02-feedback",
-  "files.autoSave": "onFocusChange",
-  "editor.formatOnSave": true,
-  "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
+    "node-sass": "^5.0.0",
+    "prettier": "^2.2.1",
+    "prop-types": "^15.7.2",
+    "sass-loader": "^10.1.1"
   }
 }
