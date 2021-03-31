@@ -1,8 +1,8 @@
+import PropTypes from "prop-types";
+import { createUseStyles } from "react-jss";
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
-import PropTypes from "prop-types";
-import StateList from "./StateList";
-import { createUseStyles } from "react-jss";
+import StateList from "../StateList/StateList";
 
 const useStyles = createUseStyles({
   profile: {
@@ -30,7 +30,13 @@ const useStyles = createUseStyles({
   },
 });
 
-const Profile = ({ name, tag, location, avatar, followers, views, likes }) => {
+const Profile = ({
+  name,
+  tag,
+  location,
+  avatar,
+  stats: { followers, views, likes },
+}) => {
   const stylesProfile = useStyles();
 
   return (

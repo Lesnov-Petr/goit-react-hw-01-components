@@ -1,16 +1,13 @@
-import { createUseStyles } from 'react-jss';
-import './Friend.scss';
+import { Fragment } from "react";
+import { createUseStyles } from "react-jss";
+import "./Friend.scss";
 
 const useStyles = createUseStyles({
   itemFriend: {
-    display: 'flex',
-    alignItems: 'center',
+    display: "flex",
+    alignItems: "center",
   },
-  friendList: {
-    margin: 0,
-    padding: 0,
-    listStyle: 'none',
-  },
+
   avatar: {
     width: 50,
     marginLeft: 10,
@@ -18,14 +15,14 @@ const useStyles = createUseStyles({
   },
 });
 
-const status = online => {
-  const status = ['status'];
+const status = (online) => {
+  const status = ["status"];
   if (online) {
-    status.push('isOnline');
-    return status.join(' ');
+    status.push("isOnline");
+    return status.join(" ");
   } else {
-    status.push('isOffline');
-    return status.join(' ');
+    status.push("isOffline");
+    return status.join(" ");
   }
 };
 
@@ -33,8 +30,8 @@ const FriendItem = ({ friendList }) => {
   const classes = useStyles();
 
   return (
-    <ul className={classes.friendList}>
-      {friendList.map(friend => (
+    <Fragment>
+      {friendList.map((friend) => (
         <li className={classes.itemFriend} key={friend.id}>
           <p className={status(friend.isOnline)}> </p>
           <img
@@ -45,7 +42,7 @@ const FriendItem = ({ friendList }) => {
           <span>{friend.name}</span>
         </li>
       ))}
-    </ul>
+    </Fragment>
   );
 };
 export default FriendItem;

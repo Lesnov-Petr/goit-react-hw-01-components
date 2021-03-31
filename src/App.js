@@ -1,11 +1,11 @@
-import user from './json/user.json';
-import statisticalData from './json/statistical-data.json';
-import friendList from './json/friendList.json';
-import transations from './json/transations.json';
-import Profile from './components/Profile/Profile';
-import Statistics from './components/Statistics/Statistics';
-import Friend from './components/Friend/Friend';
-import TransactionHistory from './components/TransactionHistory/TransactionHistory';
+import Profile from "./components/Profile/Profile";
+import Statistics from "./components/Statistics/Statistics";
+import FriendList from "./components/FriendList/FriendList";
+import TransactionHistory from "./components/TransactionHistory/TransactionHistory";
+import user from "./json/user.json";
+import statisticalData from "./json/statistical-data.json";
+import friendList from "./json/friendList.json";
+import transations from "./json/transations.json";
 
 function App() {
   return (
@@ -16,12 +16,10 @@ function App() {
           avatar={user.avatar}
           tag={user.tag}
           location={user.location}
-          followers={user.stats.followers}
-          views={user.stats.views}
-          likes={user.stats.likes}
+          stats={user.stats}
         />
         <Statistics statList={statisticalData} title="Upload stats" />
-        <Friend friendList={friendList} />
+        <FriendList friendList={friendList} />
       </section>
       <section className="content">
         <TransactionHistory transations={transations} />

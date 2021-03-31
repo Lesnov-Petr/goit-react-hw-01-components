@@ -1,33 +1,36 @@
-import StatisticItem from './StatisticItem';
-import PropTypes from 'prop-types';
-import { createUseStyles } from 'react-jss';
+import StatisticItem from "../StatisticItem/StatisticItem";
+import PropTypes from "prop-types";
+import { createUseStyles } from "react-jss";
 
 const useStyle = createUseStyles({
-  display: 'flex',
-  flexDirection: 'column',
-  alignItems: 'center',
-  borderColor: 'blueviolet',
+  statistics: {
+    // display: "flex",
+    // flexDirection: "column",
+  },
+  "stat-list": {
+    display: "flex",
+    listStyle: "none",
+    margin: 0,
+    padding: 0,
+  },
 
-  title: { display: 'flex', justifyContent: 'center' },
+  title: { display: "flex", justifyContent: "center" },
 });
 
 const Statistics = ({ statList, title }) => {
   const classes = useStyle();
   return (
     <section className={classes.statistics}>
-      <h2 className={classes.title}>{title}</h2>
-      <StatisticItem statList={statList} />
+      {title && <h2 className={classes.title}>{title}</h2>}
+      <ul className={classes["stat-list"]}>
+        <StatisticItem statList={statList} />
+      </ul>
     </section>
   );
 };
 
 Statistics.propTypes = {
-  title: PropTypes.string.isRequired,
-  statList: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string.isRequired,
-    }),
-  ),
+  title: PropTypes.string,
 };
 
 export default Statistics;
