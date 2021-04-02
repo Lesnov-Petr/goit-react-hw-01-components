@@ -1,4 +1,3 @@
-import { Fragment } from "react";
 import { createUseStyles } from "react-jss";
 import PropTypes from "prop-types";
 
@@ -13,33 +12,29 @@ const useStyle = createUseStyles({
   label: { display: "block" },
 });
 
-const StatisticItem = ({ statList }) => {
+const StatisticItem = ({ stat: { label, percentage }, idx }) => {
   const classes = useStyle();
+
   return (
-    <Fragment>
-      {statList.map(({ id, label, percentage }, idx) => (
-        <li
-          className={classes.item}
-          key={id}
-          style={{
-            backgroundColor: colors[idx],
-          }}
-        >
-          <span className={classes.label}>{label}</span>
-          <span className="percentage">{percentage}%</span>
-        </li>
-      ))}
-    </Fragment>
+    <>
+      <li
+        className={classes.item}
+        style={{
+          backgroundColor: colors[idx],
+        }}
+      >
+        <span className={classes.label}>{label}</span>
+        <span className="percentage">{percentage}%</span>
+      </li>
+    </>
   );
 };
 
 StatisticItem.propTypes = {
-  statList: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      label: PropTypes.string.isRequired,
-      percentage: PropTypes.number.isRequired,
-    })
-  ),
+  idx: PropTypes.number.isRequired,
+  stat: PropTypes.shape({
+    label: PropTypes.string.isRequired,
+    percentage: PropTypes.number.isRequired,
+  }),
 };
 export default StatisticItem;

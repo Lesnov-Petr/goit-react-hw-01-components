@@ -3,10 +3,6 @@ import PropTypes from "prop-types";
 import { createUseStyles } from "react-jss";
 
 const useStyle = createUseStyles({
-  statistics: {
-    // display: "flex",
-    // flexDirection: "column",
-  },
   "stat-list": {
     display: "flex",
     listStyle: "none",
@@ -23,7 +19,9 @@ const Statistics = ({ statList, title }) => {
     <section className={classes.statistics}>
       {title && <h2 className={classes.title}>{title}</h2>}
       <ul className={classes["stat-list"]}>
-        <StatisticItem statList={statList} />
+        {statList.map((stat, idx) => (
+          <StatisticItem stat={stat} idx={idx} key={stat.id} />
+        ))}
       </ul>
     </section>
   );
@@ -31,6 +29,11 @@ const Statistics = ({ statList, title }) => {
 
 Statistics.propTypes = {
   title: PropTypes.string,
+  statList: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+    })
+  ),
 };
 
 export default Statistics;

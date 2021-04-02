@@ -1,20 +1,14 @@
-import { createUseStyles } from 'react-jss';
-import './History.scss';
+import { createUseStyles } from "react-jss";
+import PropTypes from "prop-types";
+import TransactionItem from "./TransactionItem";
+import "./History.scss";
 
 const useStyle = createUseStyles({
   tablet: {
-    backgroundColor: '#30d5c8',
-    color: 'white',
-  },
-  cell: {
-    padding: [10, 30, 10, 30],
+    backgroundColor: "#30d5c8",
+    color: "white",
   },
 });
-
-const classTablet = idx => {
-  const classTablet = idx % 2 ? 'white' : 'black';
-  return classTablet;
-};
 
 const TransactionHistory = ({ transations }) => {
   const classes = useStyle();
@@ -29,16 +23,24 @@ const TransactionHistory = ({ transations }) => {
       </thead>
 
       <tbody>
-        {transations.map(({ type, amount, currency, id }, idx) => (
-          <tr key={id} className={classTablet(idx)}>
-            <td className={classes.cell}>{type}</td>
-            <td className={classes.cell}>{amount}</td>
-            <td className={classes.cell}>{currency}</td>
-          </tr>
+        {transations.map((transation, idx) => (
+          <TransactionItem
+            key={transation.id}
+            transation={transation}
+            idx={idx}
+          />
         ))}
       </tbody>
     </table>
   );
+};
+
+TransactionHistory.propTypes = {
+  transations: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+    })
+  ),
 };
 
 export default TransactionHistory;
